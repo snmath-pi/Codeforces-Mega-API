@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Blog Entries</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 1000px;
+        text-align: center;
+        overflow-y: auto;
+        max-height: 80vh;
+      }
+
+      .container h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .blog-entry {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #fafafa;
+        margin: 10px 0;
+        text-align: left;
+      }
+
+      .blog-entry h2 {
+        margin-top: 0;
+        font-size: 20px;
+        color: #333;
+      }
+
+      .blog-entry .field {
+        margin-bottom: 10px;
+      }
+
+      .blog-entry .field span {
+        font-weight: bold;
+        color: #555;
+      }
+
+      .tag-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .tag-list li {
+        display: inline;
+        margin-right: 10px;
+        background-color: #e0f7fa;
+        padding: 5px 10px;
+        border-radius: 4px;
+        color: #0288d1;
+      }
+
+      .link-container {
+        margin-top: 20px;
+      }
+
+      .link-container a {
+        color: #0288d1;
+        text-decoration: none;
+        font-size: 16px;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .link-container a:hover {
+        background-color: #0288d1;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>User Blog Entries</h1>
+      <div id="result">
+        <% if (blogEntries && blogEntries.length > 0) { %> <%
+        blogEntries.forEach(function(entry) { %>
+        <div class="blog-entry">
+          <h2><%= entry.title %></h2>
+          <div class="field"><span>ID:</span> <%= entry.id %></div>
+          <div class="field">
+            <span>Original Locale:</span> <%= entry.originalLocale %>
+          </div>
+          <div class="field">
+            <span>Creation Time:</span> <%= new Date(entry.creationTimeSeconds *
+            1000).toLocaleString() %>
+          </div>
+          <div class="field">
+            <span>Author Handle:</span> <%= entry.authorHandle %>
+          </div>
+          <div class="field"><span>Locale:</span> <%= entry.locale %></div>
+          <div class="field">
+            <span>Modification Time:</span> <%= new
+            Date(entry.modificationTimeSeconds * 1000).toLocaleString() %>
+          </div>
+          <div class="field">
+            <span>Allow View History:</span> <%= entry.allowViewHistory ? 'Yes'
+            : 'No' %>
+          </div>
+          <div class="field">
+            <span>Tags:</span>
+            <ul class="tag-list">
+              <% entry.tags.forEach(function(tag) { %>
+              <li><%= tag %></li>
+              <% }) %>
+            </ul>
+          </div>
+          <div class="field"><span>Rating:</span> <%= entry.rating %></div>
+          <div class="field"><span>Content:</span> <%= entry.content %></div>
+        </div>
+        <% }) %> <% } else { %>
+        <h2>No blog entries found or an error occurred.</h2>
+        <% } %>
+      </div>
+      <div class="link-container">
+        <a href="/">Back to Home Page</a>
+      </div>
+      <div class="link-container">
+        <a href="/user-blogs">Back to User Blog Page</a>
+      </div>
+    </div>
+  </body>
+</html>

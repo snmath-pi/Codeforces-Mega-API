@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile Display</title>
+    <style>
+      a {
+        color: #0288d1;
+        text-decoration: none;
+        font-size: 16px;
+      }
+      a:hover {
+        color: #01579b;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .profile-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+
+      .profile-container h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .profile-details {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+
+      .profile-details p {
+        margin: 5px 0;
+      }
+
+      .profile-details span {
+        font-weight: bold;
+        color: #555;
+      }
+
+      .avatar {
+        border-radius: 50%;
+        margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+
+      .link-container {
+        margin-top: 20px;
+      }
+
+      .link-container a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .link-container a:hover {
+        background-color: #0288d1;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-container">
+      <img src="<%= data.avatar %>" alt="User Avatar" class="avatar" />
+      <h1><%= data.handle %>'s Profile</h1>
+      <div class="profile-details">
+        <p><span>Rank:</span> <%= data.rank %></p>
+        <p><span>Rating:</span> <%= data.rating %></p>
+        <p><span>Max Rating:</span> <%= data.maxRating %></p>
+        <p><span>Country:</span> <%= data.country %></p>
+        <p><span>City:</span> <%= data.city %></p>
+        <p><span>Organization:</span> <%= data.organization %></p>
+        <p><span>Contribution:</span> <%= data.contribution %></p>
+        <p><span>Friend Count:</span> <%= data.friendOfCount %></p>
+      </div>
+      <div class="link-container">
+        <a href="/user-profile">Back To User Profile Page</a>
+        <a href="/">Back To Home Page</a>
+      </div>
+    </div>
+  </body>
+</html>
