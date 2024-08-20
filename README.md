@@ -22,6 +22,9 @@ A collection of popular codeforces public API's implemented at one place.
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/snmath-pi/Codeforces-Mega-API.git
-2. **Run the Project**
+2. **Install Dependencies**
+   ```bash
+   npm i
+3. **Run the Project**
    ```bash
    npm start
