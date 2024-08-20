@@ -11,6 +11,9 @@ A collection of popular codeforces public API's implemented at one place.
 - CodeForces Public API - User Blogs (Displays User's Blogs)
 - CodeForces Public API - User Rating Changes (Displays User's Recent Rating Changes)
 
+## Demo
+- Link: https://www.youtube.com/watch?v=yiqo9FCfez8
+
 ## Upcoming Features 
 - User Rating Predictor based on past performances.
 
